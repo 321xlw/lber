@@ -78,42 +78,116 @@ img {
 </style>
 </head>
 <body>
-<h1>国漫壁纸合集，密码711822</h1>
+<h1>国漫壁纸合集，密码：711822</h1>
 
 <script>
-// 初始化本地存储计数器
-if(!localStorage.getItem("downloadCount")){
-    localStorage.setItem("downloadCount", JSON.stringify({}));
+// Github 配置（已为你填好）
+const USER = "321xlw";
+const REPO = "lber";
+const TOKEN = "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";
+const JSON_PATH = "count.json";
+let globalCountData = {};
+
+// 读取线上计数
+async function loadCountData() {
+  try {
+    const res = await fetch(`https://raw.githubusercontent.com/${USER}/${REPO}/main/${JSON_PATH}`);
+    globalCountData = await res.json();
+    renderAllCount();
+  } catch (e) {
+    console.error("读取计数失败：", e);
+    // 读取失败时，默认全部为0
+    globalCountData = {
+      "r0":0,"r1":0,"r2":0,"r3":0,"r4":0,"r5":0,
+      "r6":0,"r7":0,"r8":0,"r9":0,"r10":0,"r11":0,
+      "r12":0,"r13":0,"r14":0,"r15":0,"r16":0,"r17":0
+    };
+    renderAllCount();
+  }
 }
 
-// 点击下载计数
-function addDownload(id){
-    let data = JSON.parse(localStorage.getItem("downloadCount"));
-    if(!data[id]) data[id] = 0;
-    data[id]++;
-    localStorage.setItem("downloadCount", JSON.stringify(data));
-    renderCount(id);
+// 保存计数回 Github
+async function saveCountData() {
+  const url = `https://api.github.com/repos/${USER}/${REPO}/contents/${JSON_PATH}`;
+  try {
+    // 先获取文件的 sha 值
+    const getRes = await fetch(url, {
+      headers: { Authorization: `token ${TOKEN}` }
+    });
+    if (!getRes.ok) throw new Error("获取文件信息失败");
+    const fileInfo = await getRes.json();
+    const sha = fileInfo.sha;
+
+    // 提交更新
+    await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `token ${TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: "更新下载次数",
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(globalCountData, null, 2)))),
+        sha: sha
+      })
+    });
+  } catch (e) {
+    console.error("保存计数失败：", e);
+  }
 }
 
-// 渲染次数
-function renderCount(id){
-    let data = JSON.parse(localStorage.getItem("downloadCount"));
-    let num = data[id] || 0;
-    document.getElementById("cnt_"+id).innerText = "已下载：" + num + " 次";
+// 点击下载 +1
+async function addDownload(id) {
+  if (!globalCountData[id]) globalCountData[id] = 0;
+  globalCountData[id]++;
+  await saveCountData();
+  renderCount(id);
 }
 
-// 页面加载初始化所有次数
+// 渲染单个次数
+function renderCount(id) {
+  const num = globalCountData[id] || 0;
+  document.getElementById("cnt_"+id).innerText = "已下载：" + num + " 次";
+}
+
+// 渲染全部
+function renderAllCount(){
+  let idList = [
+    "r0","r1","r2","r3","r4","r5","r6","r7","r8",
+    "r9","r10","r11","r12","r13","r14","r15","r16","r17"
+  ];
+  idList.forEach(id=>renderCount(id));
+}
+
 window.onload = function(){
-    let idList = [
-        "r0","r1","r2","r3","r4","r5","r6","r7","r8",
-        "r9","r10","r11","r12","r13","r14"
-    ];
-    idList.forEach(id=>renderCount(id));
+  loadCountData();
 }
 </script>
 
 <div class="wrap">
-<!-- 4.27 最新资源 置顶 -->
+<!-- 4.28 最新资源 置顶 -->
+<div class="item">
+  <img src="https://s3.bmp.ovh/2026/04/28/o3vEiVWH.jpg" alt="4.28-永恒天使-3.23G-200P-夸克">
+  <div class="title">4.28-永恒天使-3.23G-200P-夸克</div>
+  <a href="https://pan.quark.cn/s/dc11a74041e7" class="down-btn" target="_blank" onclick="addDownload('r15')">立即下载</a>
+  <span class="count-text" id="cnt_r15">已下载：0 次</span>
+</div>
+
+<div class="item">
+  <img src="https://s3.bmp.ovh/2026/04/28/59dUPA4Q.jpg" alt="4.28-柳玉-2.17G-80P-百度">
+  <div class="title">4.28-柳玉-2.17G-80P-百度</div>
+  <a href="https://pan.baidu.com/s/1KjIWWw9D0kBzh0AFYvhu2g?pwd=3x5m" class="down-btn" target="_blank" onclick="addDownload('r16')">立即下载</a>
+  <span class="count-text" id="cnt_r16">已下载：0 次</span>
+</div>
+
+<div class="item">
+  <img src="https://s3.bmp.ovh/2026/04/28/Gmx3xP9g.jpg" alt="4.28-网衣-700MB-75P-UC">
+  <div class="title">4.28-网衣-700MB-75P-UC</div>
+  <a href="https://drive.uc.cn/s/8e9febcaebec4" class="down-btn" target="_blank" onclick="addDownload('r17')">立即下载</a>
+  <span class="count-text" id="cnt_r17">已下载：0 次</span>
+</div>
+
+<!-- 4.27 往期资源 -->
 <div class="item">
   <img src="https://s3.bmp.ovh/2026/04/27/4ztGkvf6.jpg" alt="4.27-清漪-2.4G-121P-夸克">
   <div class="title">4.27-清漪-2.4G-121P-夸克</div>
