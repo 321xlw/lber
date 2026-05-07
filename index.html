@@ -30,14 +30,20 @@ h1 {
 .item {
   text-align: center;
 }
-/* 缩小图片，6张并排不拥挤 */
-img {
+/* 用容器固定宽高，防止图片撑破布局 */
+.img-box {
   width: 100%;
   max-width: 150px;
   height: 230px;
   border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 8px;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  margin-bottom: 8px;
+  display: block;
 }
 .title {
   margin: 5px 0 10px;
@@ -74,11 +80,15 @@ img {
   body {
     padding: 20px 3%;
   }
+  .img-box {
+    max-width: 100%;
+    height: 260px;
+  }
 }
 </style>
 </head>
 <body>
-<h1>国漫壁纸合集，密码：711822</h1>
+<h1>国漫壁纸合集，密码711822</h1>
 
 <script>
 // Github 配置（已为你填好）
@@ -100,7 +110,10 @@ async function loadCountData() {
     globalCountData = {
       "r0":0,"r1":0,"r2":0,"r3":0,"r4":0,"r5":0,
       "r6":0,"r7":0,"r8":0,"r9":0,"r10":0,"r11":0,
-      "r12":0,"r13":0,"r14":0,"r15":0,"r16":0,"r17":0
+      "r12":0,"r13":0,"r14":0,"r15":0,"r16":0,"r17":0,
+      "r18":0,"r19":0,"r20":0,"r21":0,"r22":0,"r23":0,
+      "r24":0,"r25":0,"r26":0,"r27":0,"r28":0,"r29":0,
+      "r30":0,"r31":0,"r32":0
     };
     renderAllCount();
   }
@@ -154,7 +167,9 @@ function renderCount(id) {
 function renderAllCount(){
   let idList = [
     "r0","r1","r2","r3","r4","r5","r6","r7","r8",
-    "r9","r10","r11","r12","r13","r14","r15","r16","r17"
+    "r9","r10","r11","r12","r13","r14","r15","r16","r17",
+    "r18","r19","r20","r21","r22","r23","r24","r25","r26",
+    "r27","r28","r29","r30","r31","r32"
   ];
   idList.forEach(id=>renderCount(id));
 }
@@ -163,25 +178,31 @@ window.onload = function(){
   loadCountData();
 }
 </script>
-  
+
 <div class="wrap">
 <!-- 5.7 最新资源 置顶 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/tZE9nmnh.jpg" alt="5.7-冷筱-2G-117P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/tZE9nmnh.jpg" alt="5.7-冷筱-2G-117P-夸克">
+  </div>
   <div class="title">5.7-冷筱-2G-117P-夸克</div>
   <a href="https://pan.quark.cn/s/f0ea35f09e3c" class="down-btn" target="_blank" onclick="addDownload('r18')">立即下载</a>
   <span class="count-text" id="cnt_r18">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/E8O7K9v6.jpg" alt="5.7-海琴烟-2G-80P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/E8O7K9v6.jpg" alt="5.7-海琴烟-2G-80P-百度">
+  </div>
   <div class="title">5.7-海琴烟-2G-80P-百度</div>
   <a href="https://pan.baidu.com/s/1L18gKK4SHNBr7OasO-DA8w?pwd=ymja" class="down-btn" target="_blank" onclick="addDownload('r19')">立即下载</a>
   <span class="count-text" id="cnt_r19">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/knB7g65X.jpg" alt="5.7-古风-700MB-78P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/knB7g65X.jpg" alt="5.7-古风-700MB-78P-UC">
+  </div>
   <div class="title">5.7-古风-700MB-78P-UC</div>
   <a href="https://drive.uc.cn/s/952bab0a7fcf4" class="down-btn" target="_blank" onclick="addDownload('r20')">立即下载</a>
   <span class="count-text" id="cnt_r20">已下载：0 次</span>
@@ -189,21 +210,27 @@ window.onload = function(){
 
 <!-- 5.2 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/YMM11Wli.jpg" alt="5.2-东方凤凰3-3G-208P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/YMM11Wli.jpg" alt="5.2-东方凤凰3-3G-208P-夸克">
+  </div>
   <div class="title">5.2-东方凤凰3-3G-208P-夸克</div>
   <a href="https://pan.quark.cn/s/cff297804f7d" class="down-btn" target="_blank" onclick="addDownload('r21')">立即下载</a>
   <span class="count-text" id="cnt_r21">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/Nj7gl7sP.jpg" alt="5.2-星幻王-1.9G-67P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/Nj7gl7sP.jpg" alt="5.2-星幻王-1.9G-67P-百度">
+  </div>
   <div class="title">5.2-星幻王-1.9G-67P-百度</div>
   <a href="https://pan.baidu.com/s/14DIxzQfup3UF8sUNQ5Bpww?pwd=pbcf" class="down-btn" target="_blank" onclick="addDownload('r22')">立即下载</a>
   <span class="count-text" id="cnt_r22">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/QobYBfUU.jpg" alt="5.2-丝带-800MB-130P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/QobYBfUU.jpg" alt="5.2-丝带-800MB-130P-UC">
+  </div>
   <div class="title">5.2-丝带-800MB-130P-UC</div>
   <a href="https://drive.uc.cn/s/64ad822a9eab4" class="down-btn" target="_blank" onclick="addDownload('r23')">立即下载</a>
   <span class="count-text" id="cnt_r23">已下载：0 次</span>
@@ -211,21 +238,27 @@ window.onload = function(){
 
 <!-- 5.1 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/pgbRQXkw.jpg" alt="5.1-东方凤凰2-3G-208P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/pgbRQXkw.jpg" alt="5.1-东方凤凰2-3G-208P-夸克">
+  </div>
   <div class="title">5.1-东方凤凰2-3G-208P-夸克</div>
   <a href="https://pan.quark.cn/s/ea744c6eac03" class="down-btn" target="_blank" onclick="addDownload('r24')">立即下载</a>
   <span class="count-text" id="cnt_r24">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/NwMaCTLC.jpg" alt="5.1-圣采儿-1.6G-52P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/NwMaCTLC.jpg" alt="5.1-圣采儿-1.6G-52P-百度">
+  </div>
   <div class="title">5.1-圣采儿-1.6G-52P-百度</div>
   <a href="https://pan.baidu.com/s/18euIw_02t_ljaeYRT4v70A?pwd=a3bv" class="down-btn" target="_blank" onclick="addDownload('r25')">立即下载</a>
   <span class="count-text" id="cnt_r25">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/DcPquwxB.jpg" alt="5.1-诺艾尔2-79MB-181P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/DcPquwxB.jpg" alt="5.1-诺艾尔2-79MB-181P-UC">
+  </div>
   <div class="title">5.1-诺艾尔2-79MB-181P-UC</div>
   <a href="https://drive.uc.cn/s/1d72f56279d34" class="down-btn" target="_blank" onclick="addDownload('r26')">立即下载</a>
   <span class="count-text" id="cnt_r26">已下载：0 次</span>
@@ -233,21 +266,27 @@ window.onload = function(){
 
 <!-- 4.30 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/sSKAm7V4.jpg" alt="4.30-东方凤凰-3G-208P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/sSKAm7V4.jpg" alt="4.30-东方凤凰-3G-208P-夸克">
+  </div>
   <div class="title">4.30-东方凤凰-3G-208P-夸克</div>
   <a href="https://pan.quark.cn/s/7a31558508fb" class="down-btn" target="_blank" onclick="addDownload('r27')">立即下载</a>
   <span class="count-text" id="cnt_r27">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/OSD3xqcA.jpg" alt="4.30-云韵-2.4G-106P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/OSD3xqcA.jpg" alt="4.30-云韵-2.4G-106P-百度">
+  </div>
   <div class="title">4.30-云韵-2.4G-106P-百度</div>
   <a href="https://pan.baidu.com/s/19mRx-Az4HsTtpJKiawCctw?pwd=bwxw" class="down-btn" target="_blank" onclick="addDownload('r28')">立即下载</a>
   <span class="count-text" id="cnt_r28">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/o6YbQoS1.jpg" alt="4.30-诺艾尔1-50MB-150P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/o6YbQoS1.jpg" alt="4.30-诺艾尔1-50MB-150P-UC">
+  </div>
   <div class="title">4.30-诺艾尔1-50MB-150P-UC</div>
   <a href="https://drive.uc.cn/s/3723ba5561064" class="down-btn" target="_blank" onclick="addDownload('r29')">立即下载</a>
   <span class="count-text" id="cnt_r29">已下载：0 次</span>
@@ -255,44 +294,55 @@ window.onload = function(){
 
 <!-- 4.29 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/iIgL1mXf.jpg" alt="4.29-永恒天使2-3.24G-199P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/iIgL1mXf.jpg" alt="4.29-永恒天使2-3.24G-199P-夸克">
+  </div>
   <div class="title">4.29-永恒天使2-3.24G-199P-夸克</div>
   <a href="https://pan.quark.cn/s/50f4a2535d95" class="down-btn" target="_blank" onclick="addDownload('r30')">立即下载</a>
   <span class="count-text" id="cnt_r30">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/UfxWcR3A.jpg" alt="4.29-萧潇-300MB-30P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/UfxWcR3A.jpg" alt="4.29-萧潇-300MB-30P-百度">
+  </div>
   <div class="title">4.29-萧潇-300MB-30P-百度</div>
   <a href="https://pan.baidu.com/s/1S7vxc0Kh0W53o4bqlZVwWw?pwd=qv6m" class="down-btn" target="_blank" onclick="addDownload('r31')">立即下载</a>
   <span class="count-text" id="cnt_r31">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/05/07/dMsPOApC.jpg" alt="4.29-兔女郎-500MB-69P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/05/07/dMsPOApC.jpg" alt="4.29-兔女郎-500MB-69P-UC">
+  </div>
   <div class="title">4.29-兔女郎-500MB-69P-UC</div>
   <a href="https://drive.uc.cn/s/18331a4f426c4" class="down-btn" target="_blank" onclick="addDownload('r32')">立即下载</a>
   <span class="count-text" id="cnt_r32">已下载：0 次</span>
 </div>
 
-<div class="wrap">
 <!-- 4.28 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/28/o3vEiVWH.jpg" alt="4.28-永恒天使-3.23G-200P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/28/o3vEiVWH.jpg" alt="4.28-永恒天使-3.23G-200P-夸克">
+  </div>
   <div class="title">4.28-永恒天使-3.23G-200P-夸克</div>
   <a href="https://pan.quark.cn/s/dc11a74041e7" class="down-btn" target="_blank" onclick="addDownload('r15')">立即下载</a>
   <span class="count-text" id="cnt_r15">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/28/59dUPA4Q.jpg" alt="4.28-柳玉-2.17G-80P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/28/59dUPA4Q.jpg" alt="4.28-柳玉-2.17G-80P-百度">
+  </div>
   <div class="title">4.28-柳玉-2.17G-80P-百度</div>
   <a href="https://pan.baidu.com/s/1KjIWWw9D0kBzh0AFYvhu2g?pwd=3x5m" class="down-btn" target="_blank" onclick="addDownload('r16')">立即下载</a>
   <span class="count-text" id="cnt_r16">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/28/Gmx3xP9g.jpg" alt="4.28-网衣-700MB-75P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/28/Gmx3xP9g.jpg" alt="4.28-网衣-700MB-75P-UC">
+  </div>
   <div class="title">4.28-网衣-700MB-75P-UC</div>
   <a href="https://drive.uc.cn/s/8e9febcaebec4" class="down-btn" target="_blank" onclick="addDownload('r17')">立即下载</a>
   <span class="count-text" id="cnt_r17">已下载：0 次</span>
@@ -300,109 +350,139 @@ window.onload = function(){
 
 <!-- 4.27 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/4ztGkvf6.jpg" alt="4.27-清漪-2.4G-121P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/4ztGkvf6.jpg" alt="4.27-清漪-2.4G-121P-夸克">
+  </div>
   <div class="title">4.27-清漪-2.4G-121P-夸克</div>
   <a href="https://pan.quark.cn/s/c78a490ba69d" class="down-btn" target="_blank" onclick="addDownload('r0')">立即下载</a>
   <span class="count-text" id="cnt_r0">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/sn3Yc0vP.jpg" alt="4.27-叶夕水-400MB-88P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/sn3Yc0vP.jpg" alt="4.27-叶夕水-400MB-88P-百度">
+  </div>
   <div class="title">4.27-叶夕水-400MB-88P-百度</div>
   <a href="https://pan.baidu.com/s/1TWWnrpGn-tF7s9-y8dy3Fw?pwd=57yb" class="down-btn" target="_blank" onclick="addDownload('r1')">立即下载</a>
   <span class="count-text" id="cnt_r1">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/qUTdISV4.jpg" alt="4.27-围裙-666MB-75P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/qUTdISV4.jpg" alt="4.27-围裙-666MB-75P-UC">
+  </div>
   <div class="title">4.27-围裙-666MB-75P-UC</div>
   <a href="https://drive.uc.cn/s/5bb0e3f3ee044" class="down-btn" target="_blank" onclick="addDownload('r2')">立即下载</a>
   <span class="count-text" id="cnt_r2">已下载：0 次</span>
 </div>
 
-<!-- 4.26 往期资源 放下方 -->
+<!-- 4.26 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/d3841p79.jpg" alt="4.26-柳岩2-2.3G-177P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/d3841p79.jpg" alt="4.26-柳岩2-2.3G-177P-夸克">
+  </div>
   <div class="title">4.26-柳岩2-2.3G-177P-夸克</div>
   <a href="https://pan.quark.cn/s/f88112703fd7" class="down-btn" target="_blank" onclick="addDownload('r3')">立即下载</a>
   <span class="count-text" id="cnt_r3">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/wZBaRwTM.jpg" alt="4.26-美杜莎-300MB-60P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/wZBaRwTM.jpg" alt="4.26-美杜莎-300MB-60P-百度">
+  </div>
   <div class="title">4.26-美杜莎-300MB-60P-百度</div>
   <a href="https://pan.baidu.com/s/1wjSXg_b37cUAoaMtuDIPLg?pwd=jf9p" class="down-btn" target="_blank" onclick="addDownload('r4')">立即下载</a>
   <span class="count-text" id="cnt_r4">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/SbP8INq8.jpg" alt="4.26-花-800MB-77P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/SbP8INq8.jpg" alt="4.26-花-800MB-77P-UC">
+  </div>
   <div class="title">4.26-花-800MB-77P-UC</div>
   <a href="https://drive.uc.cn/s/9de3bdb2e4324" class="down-btn" target="_blank" onclick="addDownload('r5')">立即下载</a>
   <span class="count-text" id="cnt_r5">已下载：0 次</span>
 </div>
 
-<!-- 4.25 往期资源 放下方 -->
+<!-- 4.25 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/MfuNAkgx.jpg" alt="4.25-柳岩-2G-144P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/MfuNAkgx.jpg" alt="4.25-柳岩-2G-144P-夸克">
+  </div>
   <div class="title">4.25-柳岩-2G-144P-夸克</div>
   <a href="https://pan.quark.cn/s/a5c4ae2dcf43" class="down-btn" target="_blank" onclick="addDownload('r6')">立即下载</a>
   <span class="count-text" id="cnt_r6">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/o4ZWiWwN.jpg" alt="4.25-安妙依-2G-102P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/o4ZWiWwN.jpg" alt="4.25-安妙依-2G-102P-百度">
+  </div>
   <div class="title">4.25-安妙依-2G-102P-百度</div>
   <a href="https://pan.baidu.com/s/1MwoW_eJvTOb9QWb1Df_ZvQ?pwd=8f4p" class="down-btn" target="_blank" onclick="addDownload('r7')">立即下载</a>
   <span class="count-text" id="cnt_r7">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/27/VVngtKc2.jpg" alt="4.25-女上司3-400MB-78P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/27/VVngtKc2.jpg" alt="4.25-女上司3-400MB-78P-UC">
+  </div>
   <div class="title">4.25-女上司3-400MB-78P-UC</div>
   <a href="https://drive.uc.cn/s/3a0e7c92f9e84" class="down-btn" target="_blank" onclick="addDownload('r8')">立即下载</a>
   <span class="count-text" id="cnt_r8">已下载：0 次</span>
 </div>
-  
-<!-- 4.24 往期资源 放下方 -->
+
+<!-- 4.24 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/24/9qqk7XH8.jpg" alt="4.24-狠人大帝-1.7G-117P-夸克">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/24/9qqk7XH8.jpg" alt="4.24-狠人大帝-1.7G-117P-夸克">
+  </div>
   <div class="title">4.24-狠人大帝-1.7G-117P-夸克</div>
   <a href="https://pan.quark.cn/s/46f953079c79" class="down-btn" target="_blank" onclick="addDownload('r9')">立即下载</a>
   <span class="count-text" id="cnt_r9">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/24/EusCf4zR.jpg" alt="4.24-雪女-2G-67P-百度">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/24/EusCf4zR.jpg" alt="4.24-雪女-2G-67P-百度">
+  </div>
   <div class="title">4.24-雪女-2G-67P-百度</div>
   <a href="https://pan.baidu.com/s/1IpyrCcWe0Onj_8Iean_Cnw?pwd=7c3i" class="down-btn" target="_blank" onclick="addDownload('r10')">立即下载</a>
   <span class="count-text" id="cnt_r10">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/24/LbhTO2Jv.jpg" alt="4.24-战损-700MB-77P-UC">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/24/LbhTO2Jv.jpg" alt="4.24-战损-700MB-77P-UC">
+  </div>
   <div class="title">4.24-战损-700MB-77P-UC</div>
   <a href="https://drive.uc.cn/s/5926b24093384" class="down-btn" target="_blank" onclick="addDownload('r11')">立即下载</a>
   <span class="count-text" id="cnt_r11">已下载：0 次</span>
 </div>
 
-<!-- 4.23 往期资源 放下方 -->
+<!-- 4.23 往期资源 -->
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/23/cu8OKRc5.jpg" alt="4.23-狠人大帝">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/23/cu8OKRc5.jpg" alt="4.23-狠人大帝">
+  </div>
   <div class="title">4.23-狠人大帝</div>
   <a href="https://pan.quark.cn/s/7bd61ced9e0a" class="down-btn" target="_blank" onclick="addDownload('r12')">立即下载</a>
   <span class="count-text" id="cnt_r12">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/23/OdKRJfYM.jpg" alt="4.23-新楚璇儿">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/23/OdKRJfYM.jpg" alt="4.23-新楚璇儿">
+  </div>
   <div class="title">4.23-新楚璇儿</div>
   <a href="https://pan.baidu.com/s/14EEjFJNXmCTgOOdGvFNLcg?pwd=v7px" class="down-btn" target="_blank" onclick="addDownload('r13')">立即下载</a>
   <span class="count-text" id="cnt_r13">已下载：0 次</span>
 </div>
 
 <div class="item">
-  <img src="https://s3.bmp.ovh/2026/04/23/J73cPrst.jpg" alt="4.23-上司2">
+  <div class="img-box">
+    <img src="https://s3.bmp.ovh/2026/04/23/J73cPrst.jpg" alt="4.23-上司2">
+  </div>
   <div class="title">4.23-上司2</div>
   <a href="https://drive.uc.cn/s/2c664465f4c84" class="down-btn" target="_blank" onclick="addDownload('r14')">立即下载</a>
   <span class="count-text" id="cnt_r14">已下载：0 次</span>
