@@ -64,6 +64,26 @@ h1 {
     margin-left: 6px;
 }
 
+/* 分页样式 */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+.pagination a {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+}
+.pagination a.active {
+  background: #409eff;
+  color: #fff;
+  border-color: #409eff;
+}
+
 /* 平板：一行3张 */
 @media (max-width: 1200px) {
   .wrap {
@@ -190,8 +210,17 @@ window.onload = function(){
 }
 </script>
 
-<div class="wrap">
-  <!-- 5.21 最新资源 置顶 -->
+<!-- 分页容器 -->
+<div class="wrap" id="contentWrap"></div>
+<div class="pagination" id="pagination"></div>
+
+<script>
+// 分页配置：一页30个
+const pageSize = 30;
+let currentPage = 1;
+
+let allItems = [
+ <!-- 5.21 最新资源 置顶 -->
 <div class="item">
   <div class="img-box">
     <img src="https://s3.uuu.ovh/2026/05/21/Rsm075Dq.jpg">
@@ -723,8 +752,31 @@ window.onload = function(){
   <a href="https://drive.uc.cn/s/2c664465f4c84" class="down-btn" target="_blank" onclick="addDownload('r14')">立即下载</a>
   <span class="count-text" id="cnt_r14">已下载：0 次</span>
 </div>
+];
 
-</div>
+// 渲染当前页
+function renderGallery(page) {
+  currentPage = page;
+  const totalPages = Math.ceil(allItems.length / pageSize);
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  document.getElementById('contentWrap').innerHTML = allItems.slice(start, end).join('');
   
+  let html = '';
+  if (page > 1) html += `<a onclick="renderGallery(${page-1})">上一页</a>`;
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<a class="${i===page?'active':''}" onclick="renderGallery(${i})">${i}</a>`;
+  }
+  if (page < totalPages) html += `<a onclick="renderGallery(${page+1})">下一页</a>`;
+  document.getElementById('pagination').innerHTML = html;
+}
+
+// 页面加载
+window.onload = function() {
+  renderGallery(1);
+  loadCountData();
+}
+</script>
+
 </body>
 </html>
